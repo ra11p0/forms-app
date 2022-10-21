@@ -1,6 +1,7 @@
-import i18n from 'i18next';
+import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
-i18n.use(initReactI18next).init({
+const i18n = i18next
+    .createInstance({
     fallbackNS: 'common',
     fallbackLng: 'pl',
     lng: 'en',
@@ -16,4 +17,6 @@ i18n.use(initReactI18next).init({
     defaultNS: 'common'
 });
 i18n.languages = ['en', 'pl'];
+i18n.use(initReactI18next);
+i18n.init();
 export default i18n;

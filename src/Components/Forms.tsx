@@ -28,9 +28,10 @@ function Forms(props: Props) {
   }, [props.fields])
 
   return (
+
     <Provider store={store}>
-      <I18nextProvider i18n={i18n}>
-        <div className="w-50">
+      <div className="w-100">
+        <I18nextProvider i18n={i18n}>
           <Loading isReady={true}>
             <>
               {props.mode == ApplicationModes.Edit &&
@@ -46,8 +47,8 @@ function Forms(props: Props) {
               }
             </>
           </Loading>
-        </div>
-      </I18nextProvider>
+        </I18nextProvider>
+      </div>
     </Provider>
   );
 }
