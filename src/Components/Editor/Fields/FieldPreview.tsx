@@ -1,4 +1,4 @@
-import { faHandDots } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faHandDots, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, ButtonGroup, Col, Form, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
@@ -26,9 +26,11 @@ function FieldPreview(props: Props) {
           <FontAwesomeIcon icon={faHandDots} />
           <ButtonGroup>
             <Button variant="danger" onClick={props.onRemoveFieldHandler}>
-              {t("removeField")}
+              <FontAwesomeIcon icon={faTrash} />
             </Button>
-            <Button onClick={props.onEditFieldHandler}>{t("editField")}</Button>
+            <Button onClick={props.onEditFieldHandler}>
+              <FontAwesomeIcon icon={faEdit} />
+            </Button>
           </ButtonGroup>
         </Col>
       </Row>

@@ -1,11 +1,13 @@
+import { connect } from "react-redux";
 import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import ReactDatePicker from "react-datepicker";
 import { useTranslation } from "react-i18next";
 import ValidationTypes from "../../../../Constraints/ValidationTypes";
 import Field from "../../../../Interfaces/Common/Field";
+import ReduxGetApplicationLanguage from "../../../../Redux/ReduxGet/ReduxGetApplicationLanguage";
 
-function DateField(props: Field) {
+function DateField(props: Field & { locale: string }) {
     const now = new Date();
     const [value, setValue] = useState((props.value as Date) ?? now);
     const { t } = useTranslation();
@@ -29,6 +31,8 @@ function DateField(props: Field) {
                 </Form.Text>
             }
             <ReactDatePicker
+                locale={props.locale}
+                dateFormat="P"
                 selected={new Date(value)}
                 readOnly={props.forbidFuture && props.forbidPast}
                 maxDate={props.forbidFuture ? now : null}
@@ -42,4 +46,6 @@ function DateField(props: Field) {
     );
 }
 
-export default DateField;
+export default connect((state) => ({
+    locale: ReduxGetApplicationLanguage(state)
+}), () => ({}))(DateField);

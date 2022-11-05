@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SET_ANSWER, SET_ANSWERS, SET_CURRENTLY_EDITED_FIELD, SET_FIELDS } from '../Constraints/actionTypes';
+import { SET_ANSWER, SET_ANSWERS, SET_APPLICATION_LANGUAGE, SET_CURRENTLY_EDITED_FIELD, SET_FIELDS } from '../Constraints/actionTypes';
 const defaultState = {
     fields: [],
     currentlyEdited: ""
@@ -18,6 +18,8 @@ const reducer = (state = defaultState, action) => {
                 ] : [action.payload.field] });
         case SET_CURRENTLY_EDITED_FIELD:
             return Object.assign(Object.assign({}, state), { currentlyEdited: action.payload });
+        case SET_APPLICATION_LANGUAGE:
+            return Object.assign(Object.assign({}, state), { applicationLanguage: action.payload });
         default:
             return state;
     }

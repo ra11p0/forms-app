@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import FormFilledResult from "../Interfaces/Common/FormFilledResult";
 import { I18nextProvider } from "react-i18next";
 import i18n from "../i18n/config";
+import ReduxSetApplicationLanguage from "../Redux/ReduxSet/ReduxSetApplicationLanguage";
 
 
 type Props = {
@@ -20,6 +21,7 @@ type Props = {
   fields?: Field[],
   onSubmit: (result: FormFilledResult | Field[]) => void;
   onDiscard: () => void;
+  localization: string;
 };
 
 function Forms(props: Props) {
@@ -27,8 +29,11 @@ function Forms(props: Props) {
     ReduxSetFields(props.fields ?? []);
   }, [props.fields])
 
-  return (
+  useEffect(() => {
+    ReduxSetApplicationLanguage(props.localization);
+  }, [props.localization])
 
+  return (
     <Provider store={store}>
       <div className="w-100">
         <I18nextProvider i18n={i18n}>

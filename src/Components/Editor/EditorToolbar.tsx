@@ -1,3 +1,5 @@
+import { faCheck, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
@@ -12,12 +14,14 @@ function EditorToolbar(props: Props) {
   return (
     <div className="d-flex justify-content-center m-2 p-2">
       <ButtonGroup>
-        <Button onClick={props.onAddNewFieldHandler}>{t("addNewField")}</Button>
+        <Button onClick={props.onAddNewFieldHandler}>
+          <FontAwesomeIcon icon={faPlus} />
+        </Button>
         <Button onClick={props.onDiscardHandler} variant="danger">
-          {t("discard")}
+          <FontAwesomeIcon icon={faXmark} />
         </Button>
         <Button onClick={props.onConfirmHandler} variant="success">
-          {t("confirm")}
+          <FontAwesomeIcon icon={faCheck} />
         </Button>
       </ButtonGroup>
     </div>
