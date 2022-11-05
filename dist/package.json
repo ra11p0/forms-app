@@ -42,7 +42,8 @@
     "build": "npm run clean && tsc && cp package.json README.md ./dist && cp -r ./src/i18n/locales ./dist/i18n/",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "loadToGBook": "npm run build; rm -fr ../gradebook/frontend/node_modules/@ra11p0/forms-app ; cp -r ../forms-app  ../gradebook/frontend/node_modules/@ra11p0/forms-app; rm -fr ../gradebook/frontend/node_modules/@ra11p0/forms-app/node_modules;"
   },
   "eslintConfig": {
     "extends": [

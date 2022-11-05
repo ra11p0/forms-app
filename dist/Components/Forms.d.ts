@@ -10,6 +10,7 @@ declare type Props = {
     fields?: Field[];
     onSubmit: (result: FormFilledResult | Field[]) => void;
     onDiscard: () => void;
+    localization: string;
 };
 declare function Forms(props: Props): JSX.Element;
 export default Forms;

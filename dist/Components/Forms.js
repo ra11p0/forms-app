@@ -17,6 +17,10 @@ function Forms(props) {
         var _a;
         ReduxSetFields((_a = props.fields) !== null && _a !== void 0 ? _a : []);
     }, [props.fields]);
+    useEffect(() => {
+        i18n.changeLanguage(props.localization);
+        console.log('changed language!: ' + props.localization);
+    }, [props.localization]);
     return (_jsx(Provider, Object.assign({ store: store }, { children: _jsx("div", Object.assign({ className: "w-100" }, { children: _jsx(I18nextProvider, Object.assign({ i18n: i18n }, { children: _jsx(Loading, Object.assign({ isReady: true }, { children: _jsxs(_Fragment, { children: [props.mode == ApplicationModes.Edit &&
                                 _jsx(Editor, { onSubmit: props.onSubmit, onDiscard: props.onDiscard }), (props.mode == ApplicationModes.Fill || props.mode == ApplicationModes.Preview) &&
                                 _jsx(Filler, { onSubmit: props.onSubmit, mode: props.mode })] }) })) })) })) })));

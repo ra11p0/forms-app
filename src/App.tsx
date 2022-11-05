@@ -20,6 +20,7 @@ function App() {
       </div>
       <div>
         <Forms
+          localization="pl"
           onDiscard={() => { console.log('discard') }}
           onSubmit={(vals) => { console.dir(vals) }}
           mode={mode}

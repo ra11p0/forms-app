@@ -7,6 +7,8 @@ import Field from "../../../Interfaces/Common/Field";
 import ReduxSetField from "../../../Redux/ReduxSet/ReduxSetField";
 import * as Yup from "yup";
 import DynamicTextListInput from "../../Common/DynamicTextListInput";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
   field: Field;
@@ -152,10 +154,10 @@ function FieldEditor(props: Props) {
         <Col className="d-flex justify-content-end">
           <ButtonGroup>
             <Button variant="danger" onClick={() => props.onAbortEditingHandler(props.field.uuid)}>
-              {t("discard")}
+              <FontAwesomeIcon icon={faXmark} />
             </Button>
             <Button variant="success" type="submit">
-              {t("confirm")}
+              <FontAwesomeIcon icon={faCheck} />
             </Button>
           </ButtonGroup>
         </Col>

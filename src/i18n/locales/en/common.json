@@ -6,5 +6,19 @@
   "fieldName": "Field name",
   "fieldType": "Field type",
   "ShortText": "Short text",
-  "LongText": "Long text"
+  "LongText": "Long text",
+  "submitForm": "Submit",
+  "isRequired": "Required",
+  "useDescription": "Description",
+  "options": "Options",
+  "distinctValues": "Distinct",
+  "Date": "Date",
+  "forbidPast": "Forbid past dates",
+  "forbidFuture": "Forbid future dates",
+  "dateChangeDisabled": "Date change disabled",
+  "dateOnlyFuture": "Only future dates",
+  "dateOnlyPast": "Only past dates",
+  "fieldNameIsRequired": "Name is required",
+  "fieldRequired": "Field required",
+  "atLeastOneRequired": "At least one required"
 }
