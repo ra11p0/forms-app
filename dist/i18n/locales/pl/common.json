@@ -6,5 +6,19 @@
   "fieldName": "Nazwa pola",
   "fieldType": "Typ pola",
   "ShortText": "Krótki tekst",
-  "LongText": "Długi tekst"
+  "LongText": "Długi tekst",
+  "submitForm": "Wyślij formularz",
+  "isRequired": "Pole wymagane",
+  "useDescription": "Opis",
+  "options": "Opcje",
+  "distinctValues": "Jedna odpowiedź",
+  "Date": "Data",
+  "forbidPast": "Wyłącz przeszłe daty",
+  "forbidFuture": "Wyłącz przyszłe daty",
+  "dateChangeDisabled": "Wyłączono zmianę daty",
+  "dateOnlyFuture": "Tylko przyszłe daty",
+  "dateOnlyPast": "Tylko przeszłe daty",
+  "fieldNameIsRequired": "Nazwa pola jest wymagana",
+  "fieldRequired": "Pole wymagane",
+  "atLeastOneRequired": "Przynajmniej jedna odpowiedź wymagana"
 }

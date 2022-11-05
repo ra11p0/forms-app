@@ -1,4 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
@@ -13,6 +15,6 @@ function DynamicTextListInput(props) {
                             const newValues = values.slice();
                             newValues[i] = evt.target.value;
                             setValues(newValues);
-                        } }), _jsx(Button, Object.assign({ onClick: () => { setValues([...values.filter((_, k) => i != k)]); } }, { children: t('removeField') }))] }), i)), _jsx("div", Object.assign({ className: ' d-flex justify-content-end ' }, { children: _jsx(Button, Object.assign({ onClick: () => { setValues([...values, ""]); } }, { children: t('addField') })) }))] })));
+                        } }), _jsx(Button, Object.assign({ onClick: () => { setValues([...values.filter((_, k) => i != k)]); }, variant: 'danger' }, { children: _jsx(FontAwesomeIcon, { icon: faTrash }) }))] }), i)), _jsx("div", Object.assign({ className: ' d-flex justify-content-end ' }, { children: _jsx(Button, Object.assign({ onClick: () => { setValues([...values, ""]); }, variant: 'success' }, { children: _jsx(FontAwesomeIcon, { icon: faPlus }) })) }))] })));
 }
 export default DynamicTextListInput;
