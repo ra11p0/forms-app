@@ -6,11 +6,10 @@ import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import ValidationTypes from "../../../../Constraints/ValidationTypes";
 function Email(props) {
-    var _a;
     const { t } = useTranslation();
     const formik = useFormik({
         initialValues: {
-            email: (_a = props.value) !== null && _a !== void 0 ? _a : ""
+            email: props.value ?? ""
         },
         validateOnChange: true,
         validationSchema: Yup.object().shape({
@@ -39,6 +38,6 @@ function Email(props) {
                 }, onBlur: () => {
                     if (props.onBlur)
                         props.onBlur({ target: props, updatedValue: formik.values.email, errors: formik.errors });
-                }, isInvalid: formik.errors.email != undefined && formik.touched.email }), _jsx(Form.Control.Feedback, Object.assign({ type: "invalid" }, { children: formik.touched.email && formik.errors.email }))] }));
+                }, isInvalid: formik.errors.email != undefined && formik.touched.email }), _jsx(Form.Control.Feedback, { type: "invalid", children: formik.touched.email && formik.errors.email })] }));
 }
 export default Email;

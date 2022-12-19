@@ -7,22 +7,22 @@ import Email from '../../Editor/Fields/FieldTypes/Email';
 import LongText from '../../Editor/Fields/FieldTypes/LongText';
 import ShortText from '../../Editor/Fields/FieldTypes/ShortText';
 function Field(props) {
-    return (_jsx(Row, Object.assign({ className: 'm-2 p-2' }, { children: _jsxs(Col, { children: [_jsx(Row, { children: _jsx(Col, { children: _jsx(FormLabel, { children: props.name }) }) }), props.description &&
+    return (_jsx(Row, { className: 'm-2 p-2', children: _jsxs(Col, { children: [_jsx(Row, { children: _jsx(Col, { children: _jsx(FormLabel, { children: props.name }) }) }), props.description &&
                     _jsx(Row, { children: _jsx(Col, { children: _jsx(Form.Text, { children: props.description }) }) }), _jsx(Row, { children: _jsx(Col, { children: (() => {
                             switch (props.type) {
                                 case FieldTypes.Checkbox:
-                                    return _jsx(Checkbox, Object.assign({}, props));
+                                    return _jsx(Checkbox, { ...props });
                                 case FieldTypes.Date:
-                                    return _jsx(DateField, Object.assign({}, props));
+                                    return _jsx(DateField, { ...props });
                                 case FieldTypes.Email:
-                                    return _jsx(Email, Object.assign({}, props));
+                                    return _jsx(Email, { ...props });
                                 case FieldTypes.LongText:
-                                    return _jsx(LongText, Object.assign({}, props));
+                                    return _jsx(LongText, { ...props });
                                 case FieldTypes.ShortText:
-                                    return _jsx(ShortText, Object.assign({}, props));
+                                    return _jsx(ShortText, { ...props });
                                 default:
                                     return _jsx(_Fragment, {});
                             }
-                        })() }) })] }) })));
+                        })() }) })] }) }));
 }
 export default Field;

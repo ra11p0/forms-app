@@ -7,9 +7,8 @@ import { useTranslation } from "react-i18next";
 import ValidationTypes from "../../../../Constraints/ValidationTypes";
 import ReduxGetApplicationLanguage from "../../../../Redux/ReduxGet/ReduxGetApplicationLanguage";
 function DateField(props) {
-    var _a;
     const now = new Date();
-    const [value, setValue] = useState((_a = props.value) !== null && _a !== void 0 ? _a : now);
+    const [value, setValue] = useState(props.value ?? now);
     const { t } = useTranslation();
     const fieldInfo = ((forbidPast, forbidFuture) => {
         if (forbidPast && forbidFuture) {
@@ -31,7 +30,7 @@ function DateField(props) {
     }, [props.validationKey]);
     return (_jsxs(_Fragment, { children: [(props.forbidFuture || props.forbidPast) &&
                 _jsx(Form.Text, { children: fieldInfo }), _jsx(ReactDatePicker, { locale: props.locale, dateFormat: "P", selected: new Date(value), readOnly: props.forbidFuture && props.forbidPast, maxDate: props.forbidFuture ? now : null, minDate: props.forbidPast ? now : null, onChange: (newValue) => {
-                    setValue(newValue !== null && newValue !== void 0 ? newValue : now);
+                    setValue(newValue ?? now);
                 }, onCalendarClose: () => { if (props.onBlur)
                     props.onBlur({ target: props, updatedValue: value.toDateString(), errors: {} }); } })] }));
 }

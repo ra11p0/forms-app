@@ -6,11 +6,10 @@ import * as Yup from "yup";
 import { useTranslation } from "react-i18next";
 import ValidationTypes from "../../../../Constraints/ValidationTypes";
 function LongText(props) {
-    var _a;
     const { t } = useTranslation();
     const formik = useFormik({
         initialValues: {
-            value: (_a = props.value) !== null && _a !== void 0 ? _a : ''
+            value: props.value ?? ''
         },
         validationSchema: Yup.object().shape({
             value: (() => {
@@ -38,6 +37,6 @@ function LongText(props) {
                 }, onBlur: () => {
                     if (props.onBlur)
                         props.onBlur({ target: props, updatedValue: formik.values.value, errors: formik.errors });
-                }, isInvalid: formik.errors.value != undefined && formik.touched.value }), _jsx(Form.Control.Feedback, Object.assign({ type: "invalid" }, { children: formik.touched.value && formik.errors.value }))] }));
+                }, isInvalid: formik.errors.value != undefined && formik.touched.value }), _jsx(Form.Control.Feedback, { type: "invalid", children: formik.touched.value && formik.errors.value })] }));
 }
 export default LongText;
