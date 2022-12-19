@@ -5,10 +5,12 @@
     "declaration": true,
     "esModuleInterop": true,
     "outDir": "dist",
-    "target": "esnext",
-    "module": "esnext",
+    "target": "ESNext",
+    "module": "es2022",
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
   "include": ["src"],
   "exclude": ["node_modules"]
