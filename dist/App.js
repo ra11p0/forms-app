@@ -8,7 +8,7 @@ import FieldTypes from "./Constraints/FieldTypes";
 const modes = Object.values(ApplicationModes).map((value) => ({ value, label: value.toString() }));
 function App() {
     const [mode, setMode] = useState(ApplicationModes.Edit);
-    return (_jsxs(_Fragment, { children: [_jsx("div", { children: _jsx(ReactSelect, { value: modes.find((t) => t.value == mode), options: modes, onChange: (newValue) => { var _a; return setMode((_a = newValue === null || newValue === void 0 ? void 0 : newValue.value) !== null && _a !== void 0 ? _a : ApplicationModes.Edit); } }) }), _jsx("div", { children: _jsx(Forms, { localization: "pl", onDiscard: () => { console.log('discard'); }, onSubmit: (vals) => { console.dir(vals); }, mode: mode, fields: [
+    return (_jsxs(_Fragment, { children: [_jsx("div", { children: _jsx(ReactSelect, { value: modes.find((t) => t.value == mode), options: modes, onChange: (newValue) => setMode(newValue?.value ?? ApplicationModes.Edit) }) }), _jsx("div", { children: _jsx(Forms, { localization: "pl", onDiscard: () => { console.log('discard'); }, onSubmit: (vals) => { console.dir(vals); }, mode: mode, fields: [
                         {
                             uuid: '0.10882926347944588',
                             name: 'Zadanie 1',

@@ -7,19 +7,25 @@ const defaultState = {
 const reducer = (state = defaultState, action) => {
     switch (action.type) {
         case SET_FIELDS:
-            return Object.assign(Object.assign({}, state), { fields: action.payload });
+            return { ...state, fields: action.payload };
         case SET_ANSWERS:
-            return Object.assign(Object.assign({}, state), { answers: action.payload });
+            return { ...state, answers: action.payload };
         case SET_ANSWER:
-            return Object.assign(Object.assign({}, state), { answers: state.answers ? [
+            return {
+                ...state,
+                answers: state.answers ? [
                     ...state.answers.filter((_, i) => i < action.payload.index),
-                    Object.assign(Object.assign({}, state.answers[action.payload.index]), action.payload.field),
+                    { ...state.answers[action.payload.index], ...action.payload.field },
                     ...state.answers.filter((_, i) => i > action.payload.index),
-                ] : [action.payload.field] });
+                ] : [action.payload.field]
+            };
         case SET_CURRENTLY_EDITED_FIELD:
-            return Object.assign(Object.assign({}, state), { currentlyEdited: action.payload });
+            return { ...state, currentlyEdited: action.payload };
         case SET_APPLICATION_LANGUAGE:
-            return Object.assign(Object.assign({}, state), { applicationLanguage: action.payload });
+            return {
+                ...state,
+                applicationLanguage: action.payload
+            };
         default:
             return state;
     }

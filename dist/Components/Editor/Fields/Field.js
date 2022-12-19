@@ -68,9 +68,9 @@ function Field(props) {
     */
     drag(drop(ref));
     const [isHovered, setIsHovered] = useState(false);
-    return (_jsx("div", Object.assign({ ref: ref, className: (isHovered ? "border rounded-3 shadow " : "") + " m-2 p-2", onMouseEnter: () => setIsHovered(true), onMouseLeave: () => setIsHovered(false) }, { children: props.currentlyEdited == props.field.uuid ? (_jsx(FieldEditor, { field: props.field, onAbortEditingHandler: () => {
+    return (_jsx("div", { ref: ref, className: (isHovered ? "border rounded-3 shadow " : "") + " m-2 p-2", onMouseEnter: () => setIsHovered(true), onMouseLeave: () => setIsHovered(false), children: props.currentlyEdited == props.field.uuid ? (_jsx(FieldEditor, { field: props.field, onAbortEditingHandler: () => {
                 ReduxSetCurrentlyEdited("");
-            }, onFinishEditingHandler: () => ReduxSetCurrentlyEdited("") })) : (_jsx(FieldPreview, { field: props.field, onRemoveFieldHandler: props.onRemoveFieldHandler, onEditFieldHandler: () => ReduxSetCurrentlyEdited(props.field.uuid), isHovered: isHovered })) })));
+            }, onFinishEditingHandler: () => ReduxSetCurrentlyEdited("") })) : (_jsx(FieldPreview, { field: props.field, onRemoveFieldHandler: props.onRemoveFieldHandler, onEditFieldHandler: () => ReduxSetCurrentlyEdited(props.field.uuid), isHovered: isHovered })) }));
 }
 export default connect((state) => ({
     currentlyEdited: ReduxGetCurrentlyEdited(state),
